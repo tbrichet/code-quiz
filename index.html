@@ -31,12 +31,15 @@
 
     <!--Quiz Questions-->
     <div id="quiz" style="display:none;">
-        <div id="question"><p>Question</p></div>
+        <div id="question" class="question"><p>Question</p></div>
         <div id="choices">
-            <div id="A" onclick="checkAnswer('A')">A</div>
-            <div id="B" onclick="checkAnswer('B')">B</div>
-            <div id="C" onclick="checkAnswer('C')">C</div>
-            <div id="D" onclick="checkAnswer('D')">D</div>
+            <button id="A" class="button" onclick="checkAnswer('A')">A</button>
+            <br>
+            <button id="B" class="button" onclick="checkAnswer('B')">B</button>
+            <br>
+            <button id="C" class="button" onclick="checkAnswer('C')">C</button>
+            <br>
+            <button id="D" class="button" onclick="checkAnswer('D')">D</button>
         </div>
     </div>
 
@@ -45,7 +48,7 @@
     <div id="initials" style="display:none;"></div>
 
     <!--High Score Display-->
-    <div id="highscore" style="display:none;"></div>
+    <div id="scoreContainer" style="display:none;"></div>
 
     <!--Link to js file-->
     <script src="./assets/js/script.js"></script>

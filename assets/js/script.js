@@ -17,6 +17,10 @@
     var choiceC = document.getElementById("C");
     var choiceD = document.getElementById("D");
 
+    //Scoring
+    var initials = document.getElementById("initials");
+    var scoreContainer = document.getElementById("scoreContainer");
+
 // Timer Countdown Function
 function countdown() {
     var timeLeft = 60;
@@ -81,13 +85,14 @@ var questions = [
     }
 ]
 
-//Variables to access items in array
-var lastQuestionIndex = questions.length-1;
-var runningQuestionIndex = 0;
+//Variables
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var score = 0;
 
 // Function to display quiz questions
 function renderQuestion() {
-    var q = questions[runningQuestionIndex];
+    var q = questions[runningQuestion];
     question.innerHTML = "<p>" + q.question + "</p>";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
@@ -97,22 +102,24 @@ function renderQuestion() {
 
 // Function to check answers and move onto next question
 function checkAnswer (answer) {
-    if(questions[runningQuestionIndex].correct === answer) {
+    if(answer == questions[runningQuestion].correct) {
         score++;
-        alert("Correct");
+        alert("correct");
+
     }
     else {
-        alert("Incorrect");
-        // Adjust timer here
+        alert("incorrect");
+
     }
-    if(runningQuestionIndex < lastQuestionIndex) {
-        runningQuestionIndex++;
-        questionRender();
+    if (runningQuestion < lastQuestion) {
+        runningQuestion++;
+        renderQuestion();
     }
     else {
+        //Stop Timer
         scoreRender();
     }
-};
+}
 
 // Start Timer and Quiz
 
@@ -125,13 +132,4 @@ function startQuiz() {
     quiz.style.display = "block";
 }
 
-// High Score Tracking
-
-// High Score Display
-
-// Function to End Quiz
-
-// Clear High Scores
-
-// Event Listeners for Buttons
-
+// 
