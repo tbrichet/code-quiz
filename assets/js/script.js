@@ -26,8 +26,10 @@
     var userInitials = document.querySelector("#name");
 
 // Timer Countdown Function
+
+var timeLeft = 60;
+
 function countdown() {
-    var timeLeft = 60;
 
     var timeInterval = setInterval(function() {
         if (timeLeft > 0) {
@@ -111,6 +113,7 @@ function checkAnswer (answer) {
     }
     else {
         alert("Incorrect! Uh oh!");
+        timeLeft = timeLeft - 10;
 
     }
     if (runningQuestion < lastQuestion) {
@@ -118,8 +121,9 @@ function checkAnswer (answer) {
         renderQuestion();
     }
     else {
-        //Stop Timer
         scoreRender();
+        timeLeft = 99999999;
+        timerEl.style.display = "none";
     }
 };
 
