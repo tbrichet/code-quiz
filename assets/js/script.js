@@ -1,4 +1,5 @@
-// Get Elements
+// Get Elements by ID
+
     //Timer
     var timerEl = document.getElementById("countdown");
 
@@ -11,7 +12,6 @@
     var question = document.getElementById("question");
 
     //Answer Choices
-
     var choiceA = document.getElementById("A");
     var choiceB = document.getElementById("B");
     var choiceC = document.getElementById("C");
@@ -23,6 +23,7 @@
     var submit = document.getElementById("submit");
     var back = document.getElementById("back");
     var view = document.getElementById("view");
+    var userInitials = document.querySelector("#name");
 
 // Timer Countdown Function
 function countdown() {
@@ -42,53 +43,51 @@ function countdown() {
     }, 1000);
 };
 
-
-// Questions Array
-
+// Questions and Answers Array
 var questions = [
     {
         question: "Commonly used data types DO NOT include:",
-        choiceA: "strings",
-        choiceB: "booleans",
-        choiceC: "alerts",
-        choiceD: "numbers",
+        choiceA: "1. strings",
+        choiceB: "2. booleans",
+        choiceC: "3. alerts",
+        choiceD: "4. numbers",
         correct: "C"
     },
     {
         question: "The condition in an if/else statement is enclosed with _____.",
-        choiceA: "quotes",
-        choiceB: "curly brackets",
-        choiceC: "parentheses",
-        choiceD: "square brackets",
+        choiceA: "1. quotes",
+        choiceB: "2. curly brackets",
+        choiceC: "3. parentheses",
+        choiceD: "4. square brackets",
         correct: "C"
     },
     {
         question: "Arrays in JavaScript can be used to store ______",
-        choiceA: "numbers and strings",
-        choiceB: "other arrays",
-        choiceC: "booleans",
-        choiceD: "all of the above",
+        choiceA: "1. numbers and strings",
+        choiceB: "2. other arrays",
+        choiceC: "3. booleans",
+        choiceD: "4. all of the above",
         correct: "D"
     },
     {
         question: "String values must be enclosed with _____ when being assigned to variables.",
-        choiceA: "commas",
-        choiceB: "curly brackets",
-        choiceC: "quotes",
-        choiceD: "parentheses",
+        choiceA: "1. commas",
+        choiceB: "2. curly brackets",
+        choiceC: "3. quotes",
+        choiceD: "4. parentheses",
         correct: "C"
     },
     {
         question: "A very useful tool during development and debugging for printing content to the debugger is:",
-        choiceA: "JavaScript",
-        choiceB: "terminal/bash",
-        choiceC: "for loops",
-        choiceD: "console.log",
+        choiceA: "1. JavaScript",
+        choiceB: "2. terminal/bash",
+        choiceC: "3. for loops",
+        choiceD: "4. console.log",
         correct: "D"
     }
 ]
 
-//Variables
+//Key Variables
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
 var score = 0;
@@ -103,7 +102,7 @@ function renderQuestion() {
     choiceD.innerHTML = q.choiceD;
 };
 
-// Function to check answers and move onto next question
+// Function to Check Answers and Move onto Next Question
 function checkAnswer (answer) {
     if(answer == questions[runningQuestion].correct) {
         score++;
@@ -124,7 +123,7 @@ function checkAnswer (answer) {
     }
 };
 
-// Start Timer and Quiz
+// Event Listener and Function to Start Timer and Quiz
 
 startBtn.addEventListener("click", startQuiz);
 
@@ -135,7 +134,7 @@ function startQuiz() {
     quiz.style.display = "block";
 };
 
-// Display Score
+// Function to Display Score/ End of Quiz
 function scoreRender() {
     quiz.style.display = "none";
     initials.style.display = "block";
@@ -143,19 +142,34 @@ function scoreRender() {
     document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + "%.";
 };
 
-submit.addEventListener("click", highScores);
+// Submitting and Storing High Scores
+
+var name = localStorage.getItem("name");
+
+submit.addEventListener("click", function (event) {
+    event.preventDefault();
+    var name = document.querySelector("#name").value;
+    localStorage.setItem("name", name);
+    highScores();
+});
+
 view.addEventListener("click", highScores);
 
 
-// Scoreboard
+// Display Scoreboard
+
+
 function highScores() {
     intro.style.display = "none";
     quiz.style.display = "none";
     initials.style.display = "none";
     scoreboard.style.display = "block";
+
+    userInitials.textcontent = name;
+
 };
 
-//Return Button
+//Return Button on Scoreboard Screen
 
 back.addEventListener("click", goBack);
 
@@ -163,3 +177,5 @@ function goBack() {
     location.reload();
     return false;
 }
+
+// Clear High Scores Button

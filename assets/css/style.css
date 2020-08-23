@@ -9,9 +9,7 @@
     --secondary: #dcacf3;
 }
 
-/* Mouse Cursor */
-
-/* Header/Link/Timer */
+/* Header + Timer */
 
 header {
     padding: 20px 10px 100px 10px;
@@ -55,6 +53,7 @@ header h1 {
 
 .button:hover {
     background-color: var(--secondary);
+    cursor: pointer;
 }
 
 .button-link {
@@ -76,4 +75,10 @@ header h1 {
 
 .form {
     padding: 10px 200px 10px 200px; 
+}
+
+.display-score {
+    background-color: lavender;
+    padding: 10px 100px 10px 100px;
+    margin: 10px 100px 10px 200px;
 }
