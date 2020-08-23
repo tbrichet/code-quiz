@@ -26,11 +26,12 @@ function countdown() {
 
 // Question and Answer Arrays
 
-// Display initial screen
+// Start Timer and Quiz
 
-// Function to start quiz
-
-startBtn.onclick = countdown;
+startBtn.onclick = function() {
+    countdown();
+    document.getElementById("intro").style.display = "none";
+}
 
 // Right & Wrong Answer Function with Conditional Statements
 
