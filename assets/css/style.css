@@ -64,8 +64,7 @@ header h1 {
     margin: 5px 200px 5px 200px;
 }
 
-.button:hover,
-.button:focus {
+.button:hover {
     background-color: var(--secondary);
 }
 
@@ -76,8 +75,8 @@ header h1 {
     padding: 10px 200px 10px 200px;
 }
 
-/* Button Hover */
+/* Scoring */
 
-/* Correct/Incorrect Display */
-
-/* High Score Display */
+.form {
+    padding: 10px 200px 10px 200px; 
+}

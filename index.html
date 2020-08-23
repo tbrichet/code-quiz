@@ -30,7 +30,7 @@
     </div>
 
     <!--Quiz Questions-->
-    <div id="quiz" style="display:none;">
+    <div id="quiz" style="display: none">
         <div id="question" class="question"><p>Question</p></div>
         <div id="choices">
             <button id="A" class="button" onclick="checkAnswer('A')">A</button>
@@ -45,7 +45,15 @@
 
     <!--Score and Initials-->
 
-    <div id="initials" style="display:none;"></div>
+    <div id="initials" style="display:none;">
+        <h3 class="question">All done!</h3>
+        <div id="yourscore" class ="form"></div>
+        <form class="form">
+            <label for="name">Enter Initials</label>
+            <input type="text" placeholder="AA" name="name" id="name" />
+        </form>
+        <button type="submit" class="button">Submit</button>
+    </div>
 
     <!--High Score Display-->
     <div id="scoreContainer" style="display:none;"></div>

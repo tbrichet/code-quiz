@@ -34,7 +34,7 @@ function countdown() {
             timerEl.textContent = "Time: " + timeLeft;
             clearInterval(timeInterval);
             alert ("Time is up! Let's see how you did.")
-            // add end quiz function
+            scoreRender();
         }
     }, 1000);
 };
@@ -104,11 +104,11 @@ function renderQuestion() {
 function checkAnswer (answer) {
     if(answer == questions[runningQuestion].correct) {
         score++;
-        alert("correct");
+        alert("Correct! Way to Go!");
 
     }
     else {
-        alert("incorrect");
+        alert("Incorrect! Uh oh!");
 
     }
     if (runningQuestion < lastQuestion) {
@@ -132,4 +132,12 @@ function startQuiz() {
     quiz.style.display = "block";
 }
 
-// 
+// Display Score
+function scoreRender() {
+    quiz.style.display = "none";
+    initials.style.display = "block";
+    var scorePercent = Math.round(100 * score/questions.length);
+    document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + ".";
+}
+
+// Scoreboard
