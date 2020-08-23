@@ -148,14 +148,12 @@ function scoreRender() {
 
 // Submitting and Storing High Scores
 
-var name = localStorage.getItem("name");
-
 submit.addEventListener("click", function (event) {
     event.preventDefault();
-    var name = document.querySelector("#name").value;
-    localStorage.setItem("name", name);
     highScores();
 });
+
+//View high scores header button
 
 view.addEventListener("click", highScores);
 
@@ -164,13 +162,17 @@ view.addEventListener("click", highScores);
 
 
 function highScores() {
+    // Display Page
     intro.style.display = "none";
     quiz.style.display = "none";
     initials.style.display = "none";
     scoreboard.style.display = "block";
 
-    userInitials.textcontent = name;
-
+    // Display Scores
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode("Test");
+    node.appendChild(textnode);
+    document.getElementById("display-score").appendChild(node);
 };
 
 //Return Button on Scoreboard Screen
