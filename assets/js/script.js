@@ -17,9 +17,10 @@
     var choiceC = document.getElementById("C");
     var choiceD = document.getElementById("D");
 
-    //Scoring
+    //Scoring Pages
     var initials = document.getElementById("initials");
-    var scoreContainer = document.getElementById("scoreContainer");
+    var scoreboard = document.getElementById("scoreboard");
+    var submit = document.getElementById("submit");
 
 // Timer Countdown Function
 function countdown() {
@@ -119,7 +120,7 @@ function checkAnswer (answer) {
         //Stop Timer
         scoreRender();
     }
-}
+};
 
 // Start Timer and Quiz
 
@@ -130,14 +131,20 @@ function startQuiz() {
     intro.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
-}
+};
 
 // Display Score
 function scoreRender() {
     quiz.style.display = "none";
     initials.style.display = "block";
     var scorePercent = Math.round(100 * score/questions.length);
-    document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + ".";
-}
+    document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + "%.";
+};
+
+submit.addEventListener("click", highScores);
 
 // Scoreboard
+function highScores() {
+    initials.style.display = "none";
+    scoreboard.style.display = "block";
+}
