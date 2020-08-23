@@ -1,14 +1,73 @@
-/* Default Style */
+/* Default Styles */
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --primary: #351c75;
+    --secondary: #dcacf3;
+}
 
 /* Mouse Cursor */
 
-/* High Score Link */
+/* Header/Link/Timer */
 
-/* Timer */
+header {
+    padding: 20px 10px 100px 10px;
+}
 
-/* Quiz Questions */
+header a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-size: 1rem;
+    float: left;
+}
+
+a:active {
+    color: var(--primary);
+}
+
+header h1 {
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.timer {
+    float: right;
+}
+
+/*Intro Page*/
+
+.intro {
+    text-align: center;
+    padding: 10px 100px 0px 100px;
+}
+
+.quiz-title {
+    font-size: 2.5rem;
+}
+
+.intro p {
+    font-size: 1.5rem;
+}
 
 /* Buttons */
+
+.button {
+    color: white;
+    background-color: var(--primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--secondary);
+}
+
+/* Quiz Questions */
 
 /* Button Hover */
 
