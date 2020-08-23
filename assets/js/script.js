@@ -22,6 +22,7 @@
     var scoreboard = document.getElementById("scoreboard");
     var submit = document.getElementById("submit");
     var back = document.getElementById("back");
+    var view = document.getElementById("view");
 
 // Timer Countdown Function
 function countdown() {
@@ -143,9 +144,13 @@ function scoreRender() {
 };
 
 submit.addEventListener("click", highScores);
+view.addEventListener("click", highScores);
+
 
 // Scoreboard
 function highScores() {
+    intro.style.display = "none";
+    quiz.style.display = "none";
     initials.style.display = "none";
     scoreboard.style.display = "block";
 };
