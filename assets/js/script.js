@@ -2,7 +2,8 @@
     //Timer
     var timerEl = document.getElementById("countdown");
 
-    //Start Button
+    //Start 
+    var intro = document.getElementById("intro");
     var startBtn = document.getElementById("start");
 
     //Quiz and Questions
@@ -80,22 +81,55 @@ var questions = [
     }
 ]
 
+//Variables to access items in array
+var lastQuestionIndex = questions.length-1;
+var runningQuestionIndex = 0;
+
+// Function to display quiz questions
+function renderQuestion() {
+    var q = questions[runningQuestionIndex];
+    question.innerHTML = "<p>" + q.question + "</p>";
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
+    choiceD.innerHTML = q.choiceD;
+};
+
+// Function to check answers and move onto next question
+function checkAnswer (answer) {
+    if(questions[runningQuestionIndex].correct === answer) {
+        score++;
+        alert("Correct");
+    }
+    else {
+        alert("Incorrect");
+        // Adjust timer here
+    }
+    if(runningQuestionIndex < lastQuestionIndex) {
+        runningQuestionIndex++;
+        questionRender();
+    }
+    else {
+        scoreRender();
+    }
+};
+
 // Start Timer and Quiz
 
-startBtn.onclick = function() {
-    countdown();
-    document.getElementById("intro").style.display = "none";
-}
+startBtn.addEventListener("click", startQuiz);
 
-// Right & Wrong Answer Function with Conditional Statements
+function startQuiz() {
+    countdown();
+    intro.style.display = "none";
+    renderQuestion();
+    quiz.style.display = "block";
+}
 
 // High Score Tracking
 
 // High Score Display
 
 // Function to End Quiz
-
-// Return to Quiz
 
 // Clear High Scores
 
