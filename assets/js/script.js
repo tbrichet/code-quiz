@@ -21,6 +21,7 @@
     var initials = document.getElementById("initials");
     var scoreboard = document.getElementById("scoreboard");
     var submit = document.getElementById("submit");
+    var back = document.getElementById("back");
 
 // Timer Countdown Function
 function countdown() {
@@ -147,4 +148,13 @@ submit.addEventListener("click", highScores);
 function highScores() {
     initials.style.display = "none";
     scoreboard.style.display = "block";
+};
+
+//Return Button
+
+back.addEventListener("click", goBack);
+
+function goBack() {
+    location.reload();
+    return false;
 }
