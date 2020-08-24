@@ -172,10 +172,11 @@ function highScores() {
     scoreboard.style.display = "block";
 
     //LocalStorage Initials
+    for (let i = 0; i < localStorage.length; i++) {
     var userNameDisplay = localStorage.getItem("initialsInput");
     initialsLi.textContent = userNameDisplay;
     console.log(userNameDisplay);
-    
+    }
 };
 
 //For Loop Local Storage
