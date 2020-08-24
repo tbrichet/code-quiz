@@ -22,6 +22,7 @@
     var scoreboard = document.getElementById("scoreboard");
     var back = document.getElementById("back");
     var view = document.getElementById("view");
+    var clear = document.getElementById("clear");
 
 // Timer Countdown Function
 
@@ -126,7 +127,6 @@ function checkAnswer (answer) {
 };
 
 // Event Listener and Function to Start Timer and Quiz
-
 startBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -151,44 +151,35 @@ var initialsLi = document.querySelector("#display-score");
 var submit = document.getElementById("submit");
 
 // Submitting and Storing High Scores
-
 submit.addEventListener("click", function (event) {
     localStorage.setItem("initialsInput", initialsInput.value);
     highScores();
 });
 
 //View high scores header button
-
 view.addEventListener("click", highScores);
 
 
 // Display Scoreboard Page
-
 function highScores() {
     intro.style.display = "none";
     quiz.style.display = "none";
     initials.style.display = "none";
     scoreboard.style.display = "block";
 
-    //LocalStorage Initials
+    //LocalStorage Items and For Loop
     for (let i = 0; i < localStorage.length; i++) {
     var userNameDisplay = localStorage.getItem("initialsInput");
     var scorePercent = localStorage.getItem("scorestring");
     scorePercent = JSON.parse(scorePercent);
-    initialsLi.textContent = userNameDisplay + " - " + scorePercent;
-    console.log(userNameDisplay);
+    //initialsLi.textContent = userNameDisplay + " - " + scorePercent;
+    
+    var node = document.createElement("li");
+    var textnode = document.createTextNode(userNameDisplay + " - " + scorePercent);
+    node.appendChild(textnode);
+    document.getElementById("display-score").appendChild(node);
     }
 };
-
-
-    // Retrieve Local Storage
-    //var savedScores = localStorage.getItem("scorestring");
-
-    //if (!savedScores) {
-        //return false;
-    //}
-
-    //savedScores = JSON.parse(scorestring);
 
     //for (var i = 0; i < savedScores.length; i++) {
         //var li = document.createElement('li');
@@ -209,8 +200,9 @@ function goBack() {
 }
 
 // Clear High Scores Button
-//var clear = document.getElementById("clear");
 
-//clear.addEventListener("click", function (event) {
-    //localStorage.clear();
-//});
+clear.addEventListener("click", function () {
+    localStorage.clear();
+    console.log("clear items");
+    return;
+});
