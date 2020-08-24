@@ -172,7 +172,6 @@ function highScores() {
     var userNameDisplay = localStorage.getItem("initialsInput");
     var scorePercent = localStorage.getItem("scorestring");
     scorePercent = JSON.parse(scorePercent);
-    //initialsLi.textContent = userNameDisplay + " - " + scorePercent;
     
     var node = document.createElement("li");
     var textnode = document.createTextNode(userNameDisplay + " - " + scorePercent);
@@ -180,15 +179,6 @@ function highScores() {
     document.getElementById("display-score").appendChild(node);
     }
 };
-
-    //for (var i = 0; i < savedScores.length; i++) {
-        //var li = document.createElement('li');
-        //li.textContent = savedScores;
-       // document.getElementById("display-score").appendChild(li);
-        //return li;
-    //}
-//};
-
 
 //Return Button on Scoreboard Screen
 
@@ -203,6 +193,5 @@ function goBack() {
 
 clear.addEventListener("click", function () {
     localStorage.clear();
-    console.log("clear items");
-    return;
+    alert ("Scores have been cleared. Please refresh your page.")
 });
