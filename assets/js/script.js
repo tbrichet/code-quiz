@@ -142,11 +142,10 @@ function scoreRender() {
     initials.style.display = "block";
     var scorePercent = Math.round(100 * score/questions.length);
     document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + "%.";
-    
-    //localStorage.setItem("scorestring", JSON.stringify(scorePercent));
+    localStorage.setItem("scorestring", JSON.stringify(scorePercent));
 };
 
-//Local Storage for Initials Input
+// Local Storage for Initials Input
 var initialsInput = document.getElementById("inpName");
 var initialsLi = document.querySelector("#display-score");
 var submit = document.getElementById("submit");
@@ -174,20 +173,13 @@ function highScores() {
     //LocalStorage Initials
     for (let i = 0; i < localStorage.length; i++) {
     var userNameDisplay = localStorage.getItem("initialsInput");
-    initialsLi.textContent = userNameDisplay;
+    var scorePercent = localStorage.getItem("scorestring");
+    scorePercent = JSON.parse(scorePercent);
+    initialsLi.textContent = userNameDisplay + " - " + scorePercent;
     console.log(userNameDisplay);
     }
 };
 
-//For Loop Local Storage
-// for (let i = 0; i < localStorage.length; i++) {
-    
-
-    //displayScores(test);
-
-
-// Display Scores
-//function displayScores () {
 
     // Retrieve Local Storage
     //var savedScores = localStorage.getItem("scorestring");
