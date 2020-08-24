@@ -20,10 +20,8 @@
     //Scoring Pages
     var initials = document.getElementById("initials");
     var scoreboard = document.getElementById("scoreboard");
-    var submit = document.getElementById("submit");
     var back = document.getElementById("back");
     var view = document.getElementById("view");
-    var userInitials = document.querySelector("#name");
 
 // Timer Countdown Function
 
@@ -144,12 +142,19 @@ function scoreRender() {
     initials.style.display = "block";
     var scorePercent = Math.round(100 * score/questions.length);
     document.getElementById("yourscore").innerHTML = "Your final score is " + scorePercent + "%.";
+    
+    //localStorage.setItem("scorestring", JSON.stringify(scorePercent));
 };
+
+//Local Storage for Initials Input
+var initialsInput = document.getElementById("inpName");
+var initialsLi = document.querySelector("#display-score");
+var submit = document.getElementById("submit");
 
 // Submitting and Storing High Scores
 
 submit.addEventListener("click", function (event) {
-    event.preventDefault();
+    localStorage.setItem("initialsInput", initialsInput.value);
     highScores();
 });
 
@@ -158,22 +163,48 @@ submit.addEventListener("click", function (event) {
 view.addEventListener("click", highScores);
 
 
-// Display Scoreboard
-
+// Display Scoreboard Page
 
 function highScores() {
-    // Display Page
     intro.style.display = "none";
     quiz.style.display = "none";
     initials.style.display = "none";
     scoreboard.style.display = "block";
 
-    // Display Scores
-    var node = document.createElement("LI");
-    var textnode = document.createTextNode("Test");
-    node.appendChild(textnode);
-    document.getElementById("display-score").appendChild(node);
+    //LocalStorage Initials
+    var userNameDisplay = localStorage.getItem("initialsInput");
+    initialsLi.textContent = userNameDisplay;
+    console.log(userNameDisplay);
+    
 };
+
+//For Loop Local Storage
+// for (let i = 0; i < localStorage.length; i++) {
+    
+
+    //displayScores(test);
+
+
+// Display Scores
+//function displayScores () {
+
+    // Retrieve Local Storage
+    //var savedScores = localStorage.getItem("scorestring");
+
+    //if (!savedScores) {
+        //return false;
+    //}
+
+    //savedScores = JSON.parse(scorestring);
+
+    //for (var i = 0; i < savedScores.length; i++) {
+        //var li = document.createElement('li');
+        //li.textContent = savedScores;
+       // document.getElementById("display-score").appendChild(li);
+        //return li;
+    //}
+//};
+
 
 //Return Button on Scoreboard Screen
 
@@ -185,3 +216,8 @@ function goBack() {
 }
 
 // Clear High Scores Button
+//var clear = document.getElementById("clear");
+
+//clear.addEventListener("click", function (event) {
+    //localStorage.clear();
+//});
