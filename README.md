@@ -8,7 +8,7 @@ Tara Brichetto
 22 August 2020
 
 ## Purpose
-This password generator was created as the Week 4 Challenge Assignment for the University of Arizona's coding bootcamp program.
+This coding quiz was created as the Week 4 Challenge Assignment for the University of Arizona's coding bootcamp program.
 
 ## Project Requirements
 *Timed multiple-choice quiz on Javascript fundamentals <br>
@@ -24,7 +24,11 @@ This password generator was created as the Week 4 Challenge Assignment for the U
 *JavaScript <br>
 
 ## Website
-https://tbrichet.github.io/code-quiz
+* Github Repository | https://github.com/tbrichet/code-quiz <br>
+* Deployed Application |  https://tbrichet.github.io/code-quiz
 
-## Contribution
+## Contributions
 Made with <3 by Tara Brichetto
+
+## Screenshot
+![coding quiz screenshot](./screenshot.png)
